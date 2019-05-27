@@ -1,0 +1,62 @@
+ 
+.description{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 4px 3px 3px #888;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.description .about_title{
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px 0px 20px 0px;
+    border-bottom: 1px solid #b9b9b9;
+}
+.description p{
+    margin-top: 10px;
+    padding: 0 0 0 10px;
+}
+
+.blog_comments{
+    text-align: left;
+    margin-top: 10px;
+}
+.blog_comments_msg{
+    display: block;
+    padding: 15px 0;
+}
+
+.blog_comment{
+    background-color: #d9edf7;
+    color: #31708f;
+    border: 1px dashed #7ca4c1;
+    padding: 10px 10px 20px 10px;
+    margin-top: 10px;
+}
+.blog_comment span{
+    padding-left: 10px;
+
+}
+.blog_comment div{
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,17 +1,12 @@
-
 /* 中间部分 */
 /* 
-.body-content::after{
-    display: block;
-    content: '';
-    clear: both;
-}
 .body-content{
     width: 80%;
     margin: 0 auto;
     padding-top: 20px;
     border: 1px solid black;
 } */
+
 
 /* 每日一句部分 */
 .c-left .every-day{
@@ -87,39 +82,6 @@
     border-radius: 5px;
 }
 
-
-
-
-.boke{
-    border: 1px solid gray;
-    /* box-shadow: 3px 3px 12px 5px #555; */
-}
-.boke-top{
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-
-}
-.boke-top .boke-title{
-    font-size: 18px;
-    font-weight: 500;
-
-}
-.boke-top .boke-content{
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.boke-bottom p a{
-    color: #fff;
-}
-
-
-
-footer{
-    height: 100px;
-    background-color: #9f0;
-}
 
 
 

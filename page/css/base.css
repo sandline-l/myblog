@@ -133,7 +133,8 @@ ul.menu li:hover a{
 .right_module a{
     color: #fff;
     font-size: 14px;
-    margin-right: 10px;
+    display: inline-block;
+    margin-right: 5px;
 }
 .right_module div{
     display: block;

@@ -191,3 +191,33 @@ ul.menu li:hover a{
     margin-top: 10px;
     color: #a2a2a2;
 }
+
+/*分页*/
+.page{
+    margin-top: 20px;
+    /*display: inline-block;*/
+}
+.page>li{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    background-color: #fff;
+}
+.page>li:hover{
+    background-color: #aaa;
+}
+.now_page{
+    background-color: #555 !important;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+

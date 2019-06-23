@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>个人博客</title>
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <!-- 使用cdn引入vue.js -->
+    <link rel="stylesheet" href="./css/blog_detail.css">
     <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
-    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.js"></script>
 
 </head>
-
 <body>
     <header>
         <div class="head-content">
@@ -26,7 +20,6 @@
                 <li><a href="/guestbook.html">留言</a></li>
                 <li><a href="/edit_everyday.html">写每日一句</a></li>
                 <li><a href="/edit_blog.html">写博客</a></li>
-                <li><a href="/blog_detail.html">博客详情</a></li>
             </ul>
             <div class="right">
                 <input type="text" placeholder="输入关键词查找">
@@ -37,34 +30,11 @@
     </header>
     <div class="content">
         <div class="c-left">
-            <div class="every-day" id="every_day">
-                <p class="day-title">每日一句</p>
-                <a href="./fileupload.html">文件上传</a>
-                <p class="day-text" v-html="getContent">The secret of change is to focus all of your energy, not on fighting the old,
-                    but on building the new.</p>
-                <!-- <div class="mean">
-                    <p>改变的秘诀，是集中所有精力去建造新的东西，而非与过去抗衡。</p>
-                    <span>———— Dan Millman</span>
-                </div> -->
+            <div class="blog" id="blog_detail">
+                <div class="blog_title">{{title}}</div>
+                <div class="blog_msg">作者:kave, 标签{{tags}},发布时间:{{ctime}},浏览:{{views}}</div>
+                <div class="blog_content" v-html="content"></div>
             </div>
-            <div class="article_list" id="article_list">
-                <div class="article" v-for="(item,index) in articlelist" :key="index">
-                    <a :href="item.link" class="article_title">{{item.title}}</a>
-                    <p class="article_content" >
-                        {{item.content}}
-                    </p>
-                    <div class="article_foot">
-                        发布于{{item.date}} | 浏览({{item.num}}) | Tags：<a href="#">{{item.tag}}</a>
-                    </div>
-                </div>
-                <ul class="page">
-                    <li class="page_left" v-for="pageNum in pageNumList"
-                        @click="jumpTo(pageNum.page)"
-                        :class="{now_page:(pageNum.text == page)}">{{pageNum.text}}
-                    </li>
-                </ul>
-            </div>
-
         </div>
         <div class="c-right">
             <div class="right_module" id="random_tag">
@@ -118,9 +88,7 @@
         <p>Copyright © 2010-2017 郑晓个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/blog_detail.js"></script>
     <script src="js/base.js"></script>
-
 </body>
-
 </html>

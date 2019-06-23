@@ -8,6 +8,44 @@ var respUtil = require('../util/RespUtil');
 var url = require('url');
 var path = new Map();
 
+//通过id查找文章内容
+function queryBlogById(request,response) {
+    var params = url.parse(request.url, true).query;
+    BlogDao.queryBlogById(parseInt(params.bid),function (result) {
+        response.writeHead(200);
+        response.write(respUtil.writeResult('success','查询成功',result));
+        response.end();
+    })
+}
+path.set('/queryBlogById',queryBlogById);
+
+
+//通过page来查询博客的接口函数,对应的url为 '/queryBlogByPage?page='+(page-1)+'&pageSize='+pageSize
+function queryBlogByPage(request, response) {
+    var params = url.parse(request.url, true).query;
+    BlogDao.queryBlogByPage(parseInt(params.page), parseInt(params.pageSize),function (result) {
+        for (var i = 0; i < result.length; i++) {
+            //将img去掉,将标签也去掉
+            result[i].content = result[i].content.replace(/<img[\w\W]*">/,'');
+            result[i].content = result[i].content.substring(0,300);
+        }
+        response.writeHead(200);
+        response.write(respUtil.writeResult('success','查询成功',result));
+        response.end();
+    })
+}
+path.set('/queryBlogByPage',queryBlogByPage);
+
+//查询总博客条数
+function queryBlogcount(request, response) {
+    BlogDao.queryBlogcount(function (result) {
+        response.writeHead(200);
+        response.write(respUtil.writeResult('success','查询成功',result));
+        response.end();
+    })
+}
+path.set('/queryBlogcount',queryBlogcount);
+
 //编辑博客后, 将编辑的数据,存放到数据库里面去
 function editBlog(request, response) {
     var params = url.parse(request.url, true).query;

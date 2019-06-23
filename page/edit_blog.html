@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>编辑博客</title>
-    <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />
+    <!--<link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />-->
     <link href="./bootstrap-wysiwyg-master/external/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -14,11 +14,22 @@
     <script src="./bootstrap-wysiwyg-master/external/google-code-prettify/prettify.js"></script>
 		<link href="./bootstrap-wysiwyg-master/index.css" rel="stylesheet">
     <script src="./bootstrap-wysiwyg-master/bootstrap-wysiwyg.js"></script>
+    <!--<script src="https://cdn.bootcss.com/Base64/1.0.2/base64.min.js"></script>-->
+    <script src="./js/jquery.base64.js"></script>
     <script>
+        function HTMLEncode(html) {
+            var temp = document.createElement("div");
+            (temp.textContent != null) ? (temp.textContent = html) : (temp.innerText = html);
+            var output = temp.innerHTML;
+            temp = null;
+            return output;
+        }
       function submit() {
           var title = $('#title').val();
           var tags = $('#tags').val();
           var content = $('#editor').html();
+          // content = HTMLEncode(content);
+
           alert('提交成功');
           console.log(content);
           console.log(title);

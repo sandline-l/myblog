@@ -14,8 +14,12 @@ app.post('/editEveryDay', loader.get('/editEveryDay'));
 
 app.post('/editBlog', loader.get('/editBlog'));
 
+//第二个参数是处理函数, 他是在map数据里取出来的
+app.get('/queryBlogByPage', loader.get('/queryBlogByPage'));
 
+app.get('/queryBlogcount', loader.get('/queryBlogcount'));
 
+app.get('/queryBlogById', loader.get('/queryBlogById'));
 
 app.listen(globalConfig.port,function(){
     console.log('服务器已启动')

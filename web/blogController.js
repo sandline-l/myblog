@@ -55,6 +55,7 @@ path.set('/queryBlogcount',queryBlogcount);
 //编辑博客后, 将编辑的数据,存放到数据库里面去
 function editBlog(request, response) {
     var params = url.parse(request.url, true).query;
+    console.log('参数', params)
     //将标签里面的空格去掉, 并且处理英文逗号和中文逗号
     var tags = params.tags.replace(/ /g, '').replace(',', ',');
     //这里收到请求之后,将请求发送的data 写入数据库, 调用的是dao的方法.

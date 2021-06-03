@@ -2,11 +2,11 @@ var express = require('express');
 
 var globalConfig = require('./config.js');
 
-//loader导出的是一个map对象,包含url和对象的处理函数
+//loader导出的是一个map对象,包含url和对应的处理函数
 var loader = require('./loader.js');
-
+// 新建 express 实例
 var app = new express();
-
+// 静态资源
 app.use(express.static('./page/'));
 
 //根据请求的路径 ,来执行对象的处理函数

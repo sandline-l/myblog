@@ -2,7 +2,9 @@
 
 var fs = require('fs');
 var globalConfig = {};
-var conf = fs.readFileSync('./server.conf');
+// var conf = fs.readFileSync('./server.conf');
+var conf = fs.readFileSync('./server.conf' , 'utf-8');
+// console.log( '读取文件',conf)
 
 //注意写server.conf文件的时候,后面不能有多余的空格,要刚刚好
 var configArr = conf.toString().split('\r\n');

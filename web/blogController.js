@@ -1,4 +1,8 @@
 //这里写的是,对应的url请求的处理函数, 一个接口,对应一个处理函数
+/** 这里的目的是写 url 的处理函数.  组织方式是, 使用map 结构 保存这些 处理函数. 
+ * 之后调用的时候, 直接使用改map 结构, 就可以通过 url 来找到与之对应的 处理函数
+ *  
+ */
 var BlogDao = require('../dao/BlogDao');
 var tagDao = require('../dao/TagDao');
 var tagBlogMappingDao = require('../dao/TagBlogMappingDao');
@@ -11,12 +15,14 @@ var path = new Map();
 //通过id查找文章内容
 function queryBlogById(request,response) {
     var params = url.parse(request.url, true).query;
+    // 调用函数,操作数据库, 得到数据库的结果,执行对应的success函数
     BlogDao.queryBlogById(parseInt(params.bid),function (result) {
         response.writeHead(200);
         response.write(respUtil.writeResult('success','查询成功',result));
         response.end();
     })
 }
+// 将处理函数 存到map 结构中
 path.set('/queryBlogById',queryBlogById);
 
 
@@ -94,6 +100,7 @@ function insertTagBlogMapping(tagId, blogId){
 
 //将方法 和 url对应起来 ,然后导出
 path.set('/editBlog', editBlog);
+// 导出map
 module.exports.path = path;
 
 

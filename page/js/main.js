@@ -3,7 +3,8 @@
 var everyDay = new Vue({
     el:'#every_day',
     data:{
-        content:'ssssss'
+        content:'ssssss',
+        msg:''
     },
     computed:{
         getContent(){
@@ -12,6 +13,15 @@ var everyDay = new Vue({
     },
     created(){
         //用ajax 请求数据, 给content赋值
+    },
+    methods:{
+        getdata(){
+            console.log('发送一个请求')
+            axios.get('/queryMsgById').then((data)=>{
+                console.log('请求到的数据' , data)
+                this.msg = data.data
+            })
+        }
     }
 })
 

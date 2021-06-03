@@ -21,6 +21,8 @@ app.get('/queryBlogcount', loader.get('/queryBlogcount'));
 
 app.get('/queryBlogById', loader.get('/queryBlogById'));
 
+app.get('/queryMsgById', loader.get('/queryMsgById'));
+
 app.listen(globalConfig.port,function(){
     console.log('服务器已启动')
 });

@@ -9,7 +9,7 @@ var pathMap = new Map();
 // 读取该路径下的所有文件的文件名, 然后通过文件名遍历引入各个文件,然后将
 //各个文件里的map 保存到 pathMap里面, (也就是汇总)
 var files = fs.readdirSync(globalConfig['web_path']);
-console.log('读取目录' , files)
+// console.log('读取目录' , files)
 
 for (var i = 0; i < files.length; i ++){
     // 拼装得到路径 , 读取对应的文件,得到文件被导出的 对象数据

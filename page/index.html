@@ -40,6 +40,8 @@
             <div class="every-day" id="every_day">
                 <p class="day-title">每日一句</p>
                 <a href="./fileupload.html">文件上传</a>
+                <button @click='getdata'>点击我发送请求</button>
+                <p>{{msg}}</p>
                 <p class="day-text" v-html="getContent">The secret of change is to focus all of your energy, not on fighting the old,
                     but on building the new.</p>
                 <!-- <div class="mean">

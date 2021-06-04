@@ -56,6 +56,7 @@ path.set('/queryBlogcount',queryBlogcount);
 function editBlog(request, response) {
     var params = url.parse(request.url, true).query;
     console.log('参数', params)
+    console.log('时间',timeUtil.getNow())
     //将标签里面的空格去掉, 并且处理英文逗号和中文逗号
     var tags = params.tags.replace(/ /g, '').replace(',', ',');
     //这里收到请求之后,将请求发送的data 写入数据库, 调用的是dao的方法.
@@ -64,6 +65,8 @@ function editBlog(request, response) {
             response.writeHead(200);
             response.write(respUtil.writeResult('success','添加成功',null));
             response.end();
+            return null;
+            // 插入博客数据后, 会根据tags 的值, 将tag 存入数据库
             var blogId = result.insertId;
             var tagList = tags.split(',');
             for (var i = 0; i < tagList.length; i++) {

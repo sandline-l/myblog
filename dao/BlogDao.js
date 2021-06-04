@@ -20,7 +20,7 @@ function insertBlog(title, tags, views, content, ctime, utime, success) {
     });
     connection.end()
 }
-
+// 分页查询 博客数据
 function queryBlogByPage(page, pageSize, success) {
     //注意这个sql语句 ,要用``  ,而不是 '' , 这两个是有区别的
     var insertSql = "select * from blog order by id desc limit ?,?;";
@@ -36,6 +36,7 @@ function queryBlogByPage(page, pageSize, success) {
     });
     connection.end()
 }
+// 查询博客总数量
 function queryBlogcount(success) {
     //注意这个sql语句 ,要用``  ,而不是 '' , 这两个是有区别的
     var insertSql = "select count(1) as count from blog;";
@@ -52,6 +53,7 @@ function queryBlogcount(success) {
     connection.end()
 }
 // 该函数是用来操作数据库的, 得到结果后, 执行success函数,并传入查询结果
+// 通过id 查询 博客
 function queryBlogById(id, success) {
     //注意这个sql语句 ,要用``  ,而不是 '' , 这两个是有区别的
     var querySql = "select * from blog where id = ?;";

@@ -6,8 +6,8 @@ function createConnection() {
         host:'127.0.0.1',
         port:'3306',
         user:'root',
-        password:'sandline123',
-        database:'my_blog'
+        password:'123456',
+        database:'test'
     });
     return connection;
 }

@@ -10,6 +10,11 @@ var app = new express();
 // 静态资源
 app.use(express.static('./page/'));
 app.use('/wiki', wiki)
+app.use('/',function(req,res,next){
+    console.log('修改了index44文件')
+    console.log('日志')
+    next()
+})
 
 //根据请求的路径 ,来执行对象的处理函数
 app.post('/editEveryDay', loader.get('/editEveryDay'));

@@ -1,7 +1,7 @@
 //创建一个函数, 用来链接数据库的
 var mysql = require('mysql');
 function createConnection() {
-    // 创建连接
+    // 创建连接 , 连接的数据库是 test 数据库
     var connection = mysql.createConnection({
         host:'127.0.0.1',
         port:'3306',

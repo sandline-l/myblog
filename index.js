@@ -34,7 +34,7 @@ app.listen(globalConfig.port,function(){
     console.log('服务器已启动')
 });
 
-console.log('网站在localhost:12306');
+console.log('网站在localhost:12306 , http://127.0.0.1:12306/');
 
 
 

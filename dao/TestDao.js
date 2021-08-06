@@ -32,8 +32,8 @@ function queryTag(tag, success) {
     });
     connection.end()
 }
-// 创建一个表
-function createDB(success){
+// 查询 student 表里的 所有数据
+function selectAllStudent(success){
     let Sql = 'select * from student';
     let connection = dbutil.createConnection();
     console.log('数据库' )
@@ -55,7 +55,7 @@ function createDB(success){
 
 module.exports.insertTag = insertTag;
 module.exports.queryTag = queryTag;
-module.exports.createDB = createDB;
+module.exports.selectAllStudent = selectAllStudent;
 
 
 

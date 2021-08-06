@@ -7,8 +7,10 @@ var globalConfig = require('./config.js');
 var loader = require('./loader.js');
 // 新建 express 实例
 var app = new express();
-// 静态资源
-app.use(express.static('./page/'));
+// 静态资源 , 访问根路径, 会访问 page/index.html 文件
+app.use(express.static('./dist2/'));
+
+// app.use(express.static('./page/'));
 app.use('/wiki', wiki)
 app.use('/',function(req,res,next){
     console.log('修改了index44文件')
@@ -28,7 +30,7 @@ app.get('/queryBlogcount', loader.get('/queryBlogcount'));
 
 app.get('/queryBlogById', loader.get('/queryBlogById'));
 
-app.get('/queryMsgById', loader.get('/queryMsgById'));
+app.get('/api/queryMsgById', loader.get('/queryMsgById'));
 
 app.listen(globalConfig.port,function(){
     console.log('服务器已启动')
